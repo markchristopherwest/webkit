@@ -1,0 +1,60 @@
+---
+# This playbook contains common plays that will be run on all nodes.
+
+- name: deleting content from dreamhost
+  file:
+    state: absent
+    path: "{{ web_path }}/"
+  when: "'dreamhost' in group_names"
+
+- name: deleting content from synology
+  file:
+    state: absent
+    path: "{{ web_path }}/"
+  when:  "'synology' in group_names"
+
+- name: deleting tmp from dreamhost
+  file:
+    state: absent
+    path: "{{ tmp_path }}/"
+  when: "'dreamhost' in group_names"
+
+- name: deleting tmp from synology
+  file:
+    state: absent
+    path: "{{ tmp_path }}/"
+  when:  "'synology' in group_names"
+
+- name: creating content directory  on dreamhost
+  file:
+    state: directory
+    path: "{{ web_path }}/"
+  when: "'dreamhost' in group_names"
+
+- name: creating payload directory on dreamhost
+  file:
+    state: directory
+    path: "{{ tmp_path }}/"
+  when: "'dreamhost' in group_names"
+
+- name: creating content directory  on synology
+  file:
+    state: directory
+    path: "{{ web_path }}/"
+  when: "'synology' in group_names"
+
+- name: creating payload directory on synology
+  file:
+    state: directory
+    path: "{{ tmp_path }}/"
+  when: "'synology' in group_names"
+
+
+
+
+
+- name: clone the html5 boilerplate template to tmp
+  git:
+    repo: 'https://github.com/h5bp/html5-boilerplate.git'
+    dest: "{{ tmp_path }}/"
+    clone: yes

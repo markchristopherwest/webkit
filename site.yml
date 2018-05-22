@@ -1,0 +1,28 @@
+---
+# This playbook deploys the whole application stack in this site.
+
+- name: purge the existing content from the web server
+  hosts: all
+  roles:
+    - common
+
+- name: setup the new content from the repository on the web server
+  hosts: all
+  roles:
+    - web
+
+
+
+#- name: configure and deploy the webservers and application code
+#  hosts: webservers
+#  remote_user: root
+#
+#  roles:
+#    - web
+
+#- name: deploy MySQL and configure the databases
+#  hosts: dbservers
+#  remote_user: root
+#
+#  roles:
+#    - db

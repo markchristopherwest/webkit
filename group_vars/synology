@@ -1,0 +1,11 @@
+---
+# Environment Specific
+# Variables for Synology
+
+mysqlservice: mysqld
+mysql_port: 3306
+dbuser: foouser
+dbname: foodb
+upassword: abc
+web_path: /volume1/web/homogenius_com
+tmp_path: /volume1/web/payload
