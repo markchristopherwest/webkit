@@ -3,5 +3,7 @@
 # the version control system.
 
 - name: Copy the code from repository
-  git: repo={{ repository }} dest={{ web_path }}
+  git: repo={{ repository }} dest={{ tmp_path }}
 
+- name: Copy the payload bits to the virtual host path
+  shell: cp -Rf {{ tmp_path }}/dist/* {{ web_path }}

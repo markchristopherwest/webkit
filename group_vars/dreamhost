@@ -7,5 +7,5 @@ mysql_port: 3306
 dbuser: foouser
 dbname: foodb
 upassword: abc
-web_path: homogenius_com
-tmp_path: payload
+web_path: /home/homogenius/homogenius.com
+tmp_path: /home/homogenius/payload
